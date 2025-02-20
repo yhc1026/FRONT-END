@@ -1,0 +1,16 @@
+#videos {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+video {
+    width: 40%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+}

@@ -38,7 +38,7 @@ closeButton.addEventListener('click', async () => {
             startButton.disabled = false;
             closeButton.disabled = true;
             callButton.disabled = false;
-            hangupButton.disabled = false;
+            hangupButton.disabled = true;
         }
 });
 

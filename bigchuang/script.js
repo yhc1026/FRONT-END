@@ -2,6 +2,7 @@
 const localVideo = document.getElementById('localVideo');
 const remoteVideo = document.getElementById('remoteVideo');
 const startButton = document.getElementById('startButton');
+const closeButton = document.getElementById('closeButton');
 const callButton = document.getElementById('callButton');
 const hangupButton = document.getElementById('hangupButton');
 
@@ -13,16 +14,32 @@ const socket = new WebSocket('ws://localhost:8080');
 
 // 处理开始按钮点击事件
 startButton.addEventListener('click', async () => {
-    try {
+    
         const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         localVideo.srcObject = stream;
         localStream = stream;
         startButton.disabled = true;
+        closeButton.disabled = false;
         callButton.disabled = false;
-        hangupButton.disabled = false;
-    } catch (error) {
-        console.error('获取媒体流时出错:', error);
-    }
+        hangupButton.disabled = true;
+    });
+
+// 处理关闭按钮点击事件
+closeButton.addEventListener('click', async () => {
+    
+        if (localStream) {
+            const tracks=localStream.getTracks();
+            for(let i=0;i<tracks.length;i++)
+            {
+                const track=tracks[i];
+                track.stop();
+            }
+            localVideo.srcObject = null;
+            startButton.disabled = false;
+            closeButton.disabled = true;
+            callButton.disabled = false;
+            hangupButton.disabled = false;
+        }
 });
 
 // 处理呼叫按钮点击事件

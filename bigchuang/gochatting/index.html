@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Untitled-1.css">
+</head>
+<body>
+    <div class="nav-container">
+        <div class="nav-tabs">
+            <a href="#home" class="nav-tab active" onclick="loadContent('home')">主页</a>
+            <a href="#profile" class="nav-tab" onclick="loadContent('profile')">个人信息</a>
+            <a href="#schedule" class="nav-tab" onclick="loadContent('schedule')">课表</a>
+            <a href="#evaluation" class="nav-tab" onclick="loadContent('evaluation')">课程评价</a>
+            <a href="#video" class="nav-tab" onclick="loadContent('video')">视频通话</a>
+        </div>
+    </div>
+
+    <div class="content-container">
+        <div id="content"></div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="profile.js"></script>
+    <script src="schedule.js"></script>
+    <script src="evaluation.js"></script>
+</body>
+</html>
